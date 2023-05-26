@@ -21,7 +21,7 @@
             <div class="col-6">
                 <div class="listpokemon">
                     <ul>
-                    @foreach($pokemon as $index => $singlepokemon)
+                        @foreach($pokemon as $index => $singlepokemon)
                         <li>
                             <img src="" alt="">
                             <span>{{$index}}</span>
