@@ -24,7 +24,7 @@
                         @foreach($pokemon as $index => $singlepokemon)
                         <li>
                             <img src="" alt="">
-                            <span>{{$index}}</span>
+                            <span>{{$singlepokemon->id}}</span>
                             <p>{{$singlepokemon->name}}</p>
                         </li>
                         @endforeach
