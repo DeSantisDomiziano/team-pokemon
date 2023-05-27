@@ -8,10 +8,10 @@
         <div class="row">
             <div class="col-6">
                 <div class="titlepokemon m-1">
-                    <h2 class="text-center m-0 p-1">POKEMON</h2>
+                    <h2 class="text-center m-0 p-1">{{$singlePokemon[0]->name}}</h2>
                 </div>
                 <div class="img_pokemon">
-                    <img src="" alt="">
+                    <img src="{{ Vite::asset('resources/pokemon/' . $singlePokemon[0]->id . '.png') }}" alt="">
                 </div>
                 <div class="check_pokemon">
                     <p class="text-center m-1 p-1">POSSEDUTI:</p>
@@ -26,7 +26,7 @@
                             <p class="number m-0 p-1">{{$index + 1}}</p>
                             <img src="{{Vite::asset('resources/pokemon/'. $index + 1 .'.png')}}" alt="">
                             <p class="name m-0">
-                                <a href="{{ route('singlePokemon', $index) }}">{{$singlepokemon->name}}</a>
+                              <a href="{{ route('singlePokemon', $index) }}">{{$singlepokemon->name}}</a>
                             </p>
                         </li>
                         @endforeach
