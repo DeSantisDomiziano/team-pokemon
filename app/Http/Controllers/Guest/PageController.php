@@ -11,4 +11,10 @@ class PageController extends Controller
         $pokemon = Pokemon::all();
         return view("home", compact("pokemon"));
     }
+
+    public function singlePokemon($pokemonId){
+        $pokemon = Pokemon::all();
+        $singlePokemon = Pokemon::where('id', $pokemonId + 1)->get();
+        return view("singlePokemon", compact("pokemon", "singlePokemon"));
+    }
 }
