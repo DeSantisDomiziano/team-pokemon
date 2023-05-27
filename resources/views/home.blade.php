@@ -1,31 +1,31 @@
 @extends('layouts.app')
 @section('content')
 <div class="nav_pokedex">
-    <h1>POKEDEX NAZIONALE</h1>
+    <h1 class="text-white text-center m-0">POKEDEX NAZIONALE</h1>
 </div>
 <div class="mainpokedex">
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <div class="titlepokemon">
-                    <h2>POKEMON</h2>
+                <div class="titlepokemon m-1">
+                    <h2 class="text-center m-0 p-1">POKEMON</h2>
                 </div>
                 <div class="img_pokemon">
-                    <img src="https://picsum.photos/400" alt="">
+                    <img src="" alt="">
                 </div>
                 <div class="check_pokemon">
-                    <p>POSSEDUTI:</p>
-                    <p>CATTURATI:</p>
+                    <p class="text-center m-1 p-1">POSSEDUTI:</p>
+                    <p class="text-center m-0 p-3">CATTURATI:</p>
                 </div>
             </div>
             <div class="col-6">
                 <div class="listpokemon">
-                    <ul>
+                    <ul class="p-0 m-1">
                         @foreach($pokemon as $index => $singlepokemon)
-                        <li>
-                            <img src="" alt="">
-                            <span>{{$index}}</span>
-                            <p>{{$singlepokemon->name}}</p>
+                        <li class="d-flex p-0 m-0 justify-content-between">
+                            <p class="number m-0 p-1">{{$index + 1}}</p>
+                            <img src="{{Vite::asset('resources/pokemon/'. $index + 1 .'.png')}}"alt="">
+                            <p class="name m-0"{{$singlepokemon->name}}</p>
                         </li>
                         @endforeach
                     </ul>
