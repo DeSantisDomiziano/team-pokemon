@@ -31,9 +31,9 @@ class PokemonSeeder extends Seeder
                 $pokemon->sp_def = $row[9];
                 $pokemon->speed = $row[10];
                 $pokemon->generation = $row[11];
-                if ($row[12] === 1) {
+                if ($row[12] === "True") {
                     $pokemon->legendary = true;
-                } elseif ($row[12] === 0) {
+                } elseif ($row[12] === "False") {
                     $pokemon->legendary = false;
                 }
                 $pokemon->save();

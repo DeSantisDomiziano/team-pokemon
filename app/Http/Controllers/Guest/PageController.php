@@ -11,8 +11,4 @@ class PageController extends Controller
         $pokemon = Pokemon::all();
         return view("home", compact("pokemon"));
     }
-
-    
-
-
 }
