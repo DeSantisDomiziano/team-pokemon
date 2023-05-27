@@ -24,8 +24,8 @@
                         @foreach($pokemon as $index => $singlepokemon)
                         <li class="d-flex p-0 m-0 justify-content-between">
                             <p class="number m-0 p-1">{{$index + 1}}</p>
-                            <img src="{{Vite::asset('resources/pokemon/'. $index + 1 .'.png')}}"alt="">
-                            <p class="name m-0"{{$singlepokemon->name}}</p>
+                            <img src="{{Vite::asset('resources/pokemon/'. $index + 1 .'.png')}}" alt="">
+                            <p class="name m-0">{{$singlepokemon->name}}</p>
                         </li>
                         @endforeach
                     </ul>
