@@ -1,38 +1,29 @@
 @extends('layouts.app')
+
 @section('content')
-<div class="nav_pokedex">
-    <h1 class="text-white text-center m-0">POKEDEX NAZIONALE</h1>
-</div>
 <div class="mainpokedex">
-    <div class="container">
-        <div class="row">
-            <div class="col-6">
-                <div class="titlepokemon m-1">
-                    <h2 class="text-center m-0 p-1">POKEMON</h2>
+    <div class="container h-100">
+        <div class="row py-2 h-100">
+            <div class="col-6 d-flex flex-column justify-content-between">
+                <div class="titlepokemon">
+                    @include('partials/homePagePokemonName')
                 </div>
-                <div class="img_pokemon">
-                    <img src="" alt="">
+                <div class="img_pokemon text-center">
+                    @include('partials/homePagePokemonImage')
                 </div>
                 <div class="check_pokemon">
-                    <p class="text-center m-1 p-1">POSSEDUTI:</p>
-                    <p class="text-center m-0 p-3">CATTURATI:</p>
+                    <?php $seen = rand(0, 100); ?>
+                    <p class="d-flex justify-content-between m-0 py-2">
+                        AVVISTATI:
+                        <span>{{ $seen }}</span>
+                    </p>
+                    <p class="d-flex justify-content-between m-0 py-2">
+                        CATTURATI:
+                        <span>{{ rand(0, $seen) }}</span>
+                    </p>
                 </div>
             </div>
-            <div class="col-6">
-                <div class="listpokemon">
-                    <ul class="p-0 m-1">
-                        @foreach($pokemon as $index => $singlepokemon)
-                        <li class="d-flex p-0 m-0 justify-content-between">
-                            <p class="number m-0 p-1">{{$index + 1}}</p>
-                            <img src="{{Vite::asset('resources/pokemon/'. $index + 1 .'.png')}}" alt="">
-                            <p class="name m-0">
-                                <a href="{{ route('singlePokemon', $index) }}">{{$singlepokemon->name}}</a>
-                            </p>
-                        </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
+            @include('partials.rightSection')
         </div>
     </div>
 </div>
