@@ -15,7 +15,7 @@ class PageController extends Controller
 
     public function selectedPokemon($pokemonId){
         $pokemon = Pokemon::all();
-        $selectedPokemon = Pokemon::where('id', $pokemonId + 1)->get();
+        $selectedPokemon = Pokemon::where('id', $pokemonId)->get();
         return view("home", compact("pokemon", "selectedPokemon"));
     }
 }
