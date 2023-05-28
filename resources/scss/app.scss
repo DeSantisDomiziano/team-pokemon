@@ -65,6 +65,8 @@ main {
         .list_pokemon {
             height: 100%;
             overflow-y: auto;
+            border-radius: 1rem;
+
             li {
                 border: 5px solid black;
                 border-radius: 1rem;
@@ -83,6 +85,10 @@ main {
                     flex-basis: calc((100% - 50px) / 2);
                     font-size: 1rem;
                 }
+            }
+
+            li:not(:last-child) {
+                margin-bottom: 4px;
             }
         }
     }
