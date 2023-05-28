@@ -1,5 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 
+body {
+    font-family: 'Press Start 2P', cursive;
+}
+
 h1, h2, h3, h4, h5, h6 {
     line-height: 1;
 }
@@ -8,61 +12,52 @@ header {
     &.nav_pokedex {
         background: linear-gradient(180deg, #e83030 40%, #c02028 45%, #c02028 55%, #901020 60%);
         border-bottom: 5px solid black;
-        // background-image: url(/resources/img/barraSuperiore.png);
-        // background-size: contain;
     }
 
     h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 }
 
 main {
-
     .mainpokedex {
         // REMOVE HEADER AND FOOTER HEIGHTS
-        height: calc(100vh - 130px);
-        height: calc(100svh - 130px);
+        height: calc(100vh - 126px);
+        height: calc(100svh - 126px);
         background-image: url(/resources/img/bg.png);
         background-repeat: repeat;
 
         .titlepokemon,
         .check_pokemon {
-            // background-image: url(/resources/img/nomepokemon.png);
-            // background-size: contain;
-            // background-repeat: no-repeat;
             border: 5px solid black;
             border-radius: 1rem;
             box-shadow: inset 20px 0 0 0 red, inset -20px 0 0 0 red, inset -26px 0 3px 0 pink, inset 26px 0 3px 0 pink, inset 0 -6px 3px 0 pink, inset 0 6px 3px 0 pink;
             background-color: whitesmoke;
 
+            h2 {
+                font-size: 1.5rem;
+            }
+
             h2,
             p {
-                padding-left: 40px;
-                padding-right: 40px;
+                padding-left: 2.5rem;
+                padding-right: 2.5rem;
             }
         }
 
-        .check_pokemon {
-            p {
-                font-size: 1.25rem;
-            }
-        }
+        .list_pokemon {
+            height: 100%;
+            overflow-y: auto;
+            li {
+                border: 5px solid black;
+                border-radius: 1rem;
+                box-shadow: inset 20px 0 0 0 red, inset -20px 0 0 0 red, inset -26px 0 3px 0 pink, inset 26px 0 3px 0 pink, inset 0 -6px 3px 0 pink, inset 0 6px 3px 0 pink;
+                background-color: whitesmoke;
+                padding: 0.5rem 2.5rem;
 
-        .listpokemon {
-            ul {
-                height: 200px;
-                width: 183px;
-                overflow-y: auto;
-                li {
-                    list-style-type: none;
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    background-image: url(/resources/img/nomepokemon.png);
-
-                    img{
-                        height: 30px;
-                    }
+                p {
+                    flex-basis: calc((100% - 50px) / 2);
+                    font-size: 1rem;
                 }
             }
         }
@@ -73,5 +68,13 @@ footer {
     &.footer_pokedex {
         background: linear-gradient(0deg, #e83030 40%, #c02028 45%, #c02028 55%, #901020 60%);
         border-top: 5px solid black;
+
+        h6 {
+            font-size: 0.75rem;
+
+            span {
+                font-size: 1.25rem;
+            }
+        }
     }
 }

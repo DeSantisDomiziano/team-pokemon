@@ -24,20 +24,18 @@
                     </p>
                 </div>
             </div>
-            <div class="col-6">
-                <div class="listpokemon">
-                    <ul class="p-0 m-1">
-                        @foreach($pokemon as $index => $singlepokemon)
-                        <li class="d-flex p-0 m-0 justify-content-between">
-                            <p class="number m-0 p-1">{{$index + 1}}</p>
-                            <img src="{{Vite::asset('resources/pokemon/'. $index + 1 .'.png')}}" alt="">
-                            <p class="name m-0">
-                                <a href="{{ route('singlePokemon', $index) }}">{{$singlepokemon->name}}</a>
-                            </p>
-                        </li>
-                        @endforeach
-                    </ul>
-                </div>
+            <div class="col-6 h-100">
+                <ul class="list_pokemon p-0 m-0 list-unstyled">
+                    @foreach($pokemon as $index => $singlepokemon)
+                    <li class="mb-1">
+                        <a class="text-dark d-flex justify-content-between align-items-center text-decoration-none" href="{{ route('singlePokemon', $index) }}">
+                            <p class="number m-0">{{$index + 1}}</p>
+                            <img height="50" src="{{Vite::asset('resources/pokemon/'. $index + 1 .'.png')}}" alt="">
+                            <p class="name m-0 text-end">{{$singlepokemon->name}}</p>
+                        </a>
+                    </li>
+                    @endforeach
+                </ul>
             </div>
         </div>
     </div>
