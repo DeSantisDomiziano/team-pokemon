@@ -1,11 +1,16 @@
 @import '~bootstrap/scss/bootstrap';
 
-header {
-    &.nav_pokedex {
+.nav_pokedex,
+.footer_pokedex {
         background: linear-gradient(180deg, #e83030 40%, #c02028 45%, #c02028 55%, #901020 60%);
         border-bottom: 5px solid black;
         // background-image: url(/resources/img/barraSuperiore.png);
         // background-size: contain;
+}
+
+header {
+    h1 {
+        font-size: 2.5rem;
     }
 }
 
