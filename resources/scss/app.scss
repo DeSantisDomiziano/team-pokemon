@@ -21,16 +21,37 @@ header {
 
 main {
     .mainpokedex {
+        img {
+            filter: saturate(1.5);
+        }
+
         // REMOVE HEADER AND FOOTER HEIGHTS
         height: calc(100vh - 126px);
         height: calc(100svh - 126px);
-        background-image: url(/resources/img/bg.png);
+        background: linear-gradient(180deg, #000000, #000000aa 1%, #000000aa 7.5%, transparent 25%, transparent 75%, #000000aa 92.5%, #000000aa 99%, #000000), url('/resources/img/pokeball.png'), url('/resources/img/bg.png');
         background-repeat: repeat;
+        background-position: center center;
+
+        .img_pokemon {
+            border-inline: 5px solid black;
+            box-shadow: inset 20px 0 0 0 red, inset -20px 0 0 0 red;
+            background: linear-gradient(180deg, pink, transparent 15%, transparent 85%, pink), linear-gradient(90deg, pink, transparent 12.5%, transparent 87.5%, pink);
+            background-color: whitesmoke;
+        }
+
+        .titlepokemon {
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+        }
+
+        .check_pokemon {
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+        }
 
         .titlepokemon,
         .check_pokemon {
             border: 5px solid black;
-            border-radius: 1rem;
             box-shadow: inset 20px 0 0 0 red, inset -20px 0 0 0 red, inset -26px 0 3px 0 pink, inset 26px 0 3px 0 pink, inset 0 -6px 3px 0 pink, inset 0 6px 3px 0 pink;
             background-color: whitesmoke;
 
@@ -48,6 +69,8 @@ main {
         .list_pokemon {
             height: 100%;
             overflow-y: auto;
+            border-radius: 1rem;
+
             li {
                 border: 5px solid black;
                 border-radius: 1rem;
@@ -55,10 +78,21 @@ main {
                 background-color: whitesmoke;
                 padding: 0.5rem 2.5rem;
 
+                &:hover,
+                &.active {
+                    border: 5px solid red;
+                    box-shadow: inset 20px 0 0 0 #a00000, inset -20px 0 0 0 #a00000, inset -26px 0 3px 0 black, inset 26px 0 3px 0 black, inset 0 -6px 3px 0 black, inset 0 6px 3px 0 black;
+                    background-color: #cccccc;
+                }
+
                 p {
                     flex-basis: calc((100% - 50px) / 2);
                     font-size: 1rem;
                 }
+            }
+
+            li:not(:last-child) {
+                margin-bottom: 4px;
             }
         }
     }

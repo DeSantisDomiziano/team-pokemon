@@ -9,12 +9,13 @@ class PageController extends Controller
 {
     public function index(){
         $pokemon = Pokemon::all();
-        return view("home", compact("pokemon"));
+        $selectedPokemon = Pokemon::where('id', 1)->get();
+        return view("home", compact("pokemon", "selectedPokemon"));
     }
 
-    public function singlePokemon($pokemonId){
+    public function selectedPokemon($pokemonId){
         $pokemon = Pokemon::all();
-        $singlePokemon = Pokemon::where('id', $pokemonId + 1)->get();
-        return view("singlePokemon", compact("pokemon", "singlePokemon"));
+        $selectedPokemon = Pokemon::where('id', $pokemonId)->get();
+        return view("home", compact("pokemon", "selectedPokemon"));
     }
 }

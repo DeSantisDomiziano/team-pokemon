@@ -16,4 +16,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'index'])->name('home');
 
-Route::get('/singlePokemon/{pokemonId}', [PageController::class, 'singlePokemon'])->name('singlePokemon');
+Route::get('/selectedPokemon/{pokemonId}', [PageController::class, 'selectedPokemon'])->name('selectedPokemon');

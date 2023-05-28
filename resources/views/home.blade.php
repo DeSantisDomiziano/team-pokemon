@@ -6,10 +6,10 @@
         <div class="row py-2 h-100">
             <div class="col-6 d-flex flex-column justify-content-between">
                 <div class="titlepokemon">
-                    @include('partials/homePagePokemonName')
+                    <h2 class="text-center m-0 py-3 text-uppercase">{{ $selectedPokemon[0]->name }}</h2>
                 </div>
-                <div class="img_pokemon text-center">
-                    @include('partials/homePagePokemonImage')
+                <div class="img_pokemon text-center flex-grow-1 d-flex align-items-center justify-content-center">
+                    <img width="50%" src="{{ Vite::asset('resources/img/pokemon/' . $selectedPokemon[0]->id . '.png') }}" alt="{{ $selectedPokemon[0]->name . ' image' }}">
                 </div>
                 <div class="check_pokemon">
                     <?php $seen = rand(0, 100); ?>
