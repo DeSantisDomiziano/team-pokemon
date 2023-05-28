@@ -55,6 +55,13 @@ main {
                 background-color: whitesmoke;
                 padding: 0.5rem 2.5rem;
 
+                &:hover,
+                &.active {
+                    border: 5px solid red;
+                    box-shadow: inset 20px 0 0 0 #a00000, inset -20px 0 0 0 #a00000, inset -26px 0 3px 0 black, inset 26px 0 3px 0 black, inset 0 -6px 3px 0 black, inset 0 6px 3px 0 black;
+                    background-color: #cccccc;
+                }
+
                 p {
                     flex-basis: calc((100% - 50px) / 2);
                     font-size: 1rem;
