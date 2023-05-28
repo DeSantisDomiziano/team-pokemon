@@ -1,8 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<div class="nav_pokedex">
-    <h1 class="text-white text-center m-0">POKEDEX NAZIONALE</h1>
-</div>
 <div class="mainpokedex">
     <div class="container">
         <div class="row py-2">
