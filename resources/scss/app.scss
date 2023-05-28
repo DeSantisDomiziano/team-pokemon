@@ -28,10 +28,26 @@ main {
         background-repeat: repeat;
         background-position: center center;
 
+        .img_pokemon {
+            border-inline: 5px solid black;
+            box-shadow: inset 20px 0 0 0 red, inset -20px 0 0 0 red;
+            background: linear-gradient(180deg, pink, transparent 15%, transparent 85%, pink), linear-gradient(90deg, pink, transparent 12.5%, transparent 87.5%, pink);
+            background-color: whitesmoke;
+        }
+
+        .titlepokemon {
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+        }
+
+        .check_pokemon {
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+        }
+
         .titlepokemon,
         .check_pokemon {
             border: 5px solid black;
-            border-radius: 1rem;
             box-shadow: inset 20px 0 0 0 red, inset -20px 0 0 0 red, inset -26px 0 3px 0 pink, inset 26px 0 3px 0 pink, inset 0 -6px 3px 0 pink, inset 0 6px 3px 0 pink;
             background-color: whitesmoke;
 

@@ -8,7 +8,7 @@
                 <div class="titlepokemon">
                     <h2 class="text-center m-0 py-3 text-uppercase">{{ $selectedPokemon[0]->name }}</h2>
                 </div>
-                <div class="img_pokemon text-center">
+                <div class="img_pokemon text-center flex-grow-1 d-flex align-items-center justify-content-center">
                     <img width="50%" src="{{ Vite::asset('resources/img/pokemon/' . $selectedPokemon[0]->id . '.png') }}" alt="{{ $selectedPokemon[0]->name . ' image' }}">
                 </div>
                 <div class="check_pokemon">
