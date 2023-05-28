@@ -5,17 +5,24 @@
 </div>
 <div class="mainpokedex">
     <div class="container">
-        <div class="row">
+        <div class="row py-2">
             <div class="col-6">
-                <div class="titlepokemon mx-1">
-                    <h2 class="text-center m-0 p-1">{{$pokemon[0]->name}}</h2>
+                <div class="titlepokemon">
+                    <h2 class="text-center m-0 py-2 text-uppercase">{{$pokemon[0]->name}}</h2>
                 </div>
-                <div class="img_pokemon">
-                    <img src="{{ Vite::asset('resources/pokemon/' . $pokemon[0]->id . '.png') }}" alt="">
+                <div class="img_pokemon text-center">
+                    <img width="50%" src="{{ Vite::asset('resources/pokemon/' . $pokemon[0]->id . '.png') }}" alt="{{ $pokemon[0]->name . ' image'}}">
                 </div>
                 <div class="check_pokemon">
-                    <p class="text-center m-1 p-1">POSSEDUTI:</p>
-                    <p class="text-center m-0 p-3">CATTURATI:</p>
+                    <?php $catched = rand(0, 100); ?>
+                    <p class="d-flex justify-content-between m-0 py-2">
+                        POSSEDUTI:
+                        <span>{{ rand(0, $catched) }}</span>
+                    </p>
+                    <p class="d-flex justify-content-between m-0 py-2">
+                        CATTURATI:
+                        <span>{{ $catched }}</span>
+                    </p>
                 </div>
             </div>
             <div class="col-6">

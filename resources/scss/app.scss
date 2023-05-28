@@ -10,24 +10,34 @@ main {
         background-image: url(/resources/img/bg.png);
         background-repeat: repeat;
 
-        .titlepokemon {
-            background-image: url(/resources/img/nomepokemon.png);
-            background-size: contain;
-            background-repeat: no-repeat;
+        .titlepokemon,
+        .check_pokemon {
+            // background-image: url(/resources/img/nomepokemon.png);
+            // background-size: contain;
+            // background-repeat: no-repeat;
+            border: 5px solid black;
+            border-radius: 1rem;
+            box-shadow: inset 20px 0 0 0 red, inset -20px 0 0 0 red, inset -26px 0 0 0 pink, inset 26px 0 0 0 pink, inset 0 -6px 0 0 pink, inset 0 6px 0 0 pink;
+            background-color: whitesmoke;
 
+            h2,
+            p {
+                padding-left: 40px;
+                padding-right: 40px;
+            }
         }
 
         .check_pokemon {
-            background-image: url(/resources/img/nomepokemon.png);
-            background-size: contain;
-            background-repeat: repeat-y;
+            p {
+                font-size: 1.25rem;
+            }
         }
 
         .listpokemon {
             ul {
                 height: 200px;
                 width: 183px;
-                overflow-y: scroll;
+                overflow-y: auto;
                 li {
                     list-style-type: none;
                     background-size: contain;
