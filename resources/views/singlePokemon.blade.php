@@ -26,7 +26,7 @@
                             <p class="number m-0 p-1">{{$index + 1}}</p>
                             <img src="{{Vite::asset('resources/pokemon/'. $index + 1 .'.png')}}" alt="">
                             <p class="name m-0">
-                              <a href="{{ route('singlePokemon', $index) }}">{{$singlepokemon->name}}</a>
+                                <a href="{{ route('singlePokemon', $index) }}">{{$singlepokemon->name}}</a>
                             </p>
                         </li>
                         @endforeach

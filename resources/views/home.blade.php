@@ -7,11 +7,11 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <div class="titlepokemon m-1">
-                    <h2 class="text-center m-0 p-1">POKEMON</h2>
+                <div class="titlepokemon mx-1">
+                    <h2 class="text-center m-0 p-1">{{$pokemon[0]->name}}</h2>
                 </div>
                 <div class="img_pokemon">
-                    <img src="" alt="">
+                    <img src="{{ Vite::asset('resources/pokemon/' . $pokemon[0]->id . '.png') }}" alt="">
                 </div>
                 <div class="check_pokemon">
                     <p class="text-center m-1 p-1">POSSEDUTI:</p>
