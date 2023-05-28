@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
 <div class="nav_pokedex">
     <h1 class="text-white text-center m-0">POKEDEX NAZIONALE</h1>
@@ -18,21 +19,7 @@
                     <p class="text-center m-0 p-3">CATTURATI:</p>
                 </div>
             </div>
-            <div class="col-6">
-                <div class="listpokemon">
-                    <ul class="p-0 m-1">
-                        @foreach($pokemon as $index => $singlepokemon)
-                        <li class="d-flex p-0 m-0 justify-content-between">
-                            <p class="number m-0 p-1">{{$index + 1}}</p>
-                            <img src="{{Vite::asset('resources/pokemon/'. $index + 1 .'.png')}}" alt="">
-                            <p class="name m-0">
-                                <a href="{{ route('singlePokemon', $index) }}">{{$singlepokemon->name}}</a>
-                            </p>
-                        </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
+            @include("partials.rightSection")
         </div>
     </div>
 </div>
