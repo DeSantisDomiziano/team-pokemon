@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Guest\PageController;
+use App\Http\Controllers\PokemonController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PageController::class, 'index'])->name('home');
+// Route::get('/', [PageController::class, 'index'])->name('home');
 
-Route::get('/selectedPokemon/{pokemonId}', [PageController::class, 'selectedPokemon'])->name('selectedPokemon');
+// Route::get('/selectedPokemon/{pokemonId}', [PageController::class, 'selectedPokemon'])->name('selectedPokemon');
+
+Route::resource("/", PokemonController::class);
