@@ -12,6 +12,7 @@
                     <img width="50%" src="{{ Vite::asset('resources/img/pokemon/' . $selectedPokemon->id . '.png') }}" alt="{{ $selectedPokemon->name . ' image' }}">
                 </div>
                 <div class="check_pokemon">
+
                     <?php $seen = rand(0, 100); ?>
                     <p class="d-flex justify-content-between m-0 py-2">
                         AVVISTATI:
@@ -21,6 +22,7 @@
                         CATTURATI:
                         <span>{{ rand(0, $seen) }}</span>
                     </p>
+
                 </div>
             </div>
             @include('partials.rightSection')
