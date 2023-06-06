@@ -27,7 +27,7 @@ class PokemonController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pokemon.create');
     }
 
     /**
@@ -38,7 +38,10 @@ class PokemonController extends Controller
      */
     public function store(StorePokemonRequest $request)
     {
-        //
+        $validation = $request->validated();
+        Pokemon::create($validation);
+
+        return to_route('pokemon.index')->with('message', 'pokemon added successfully');
     }
 
     /**
@@ -60,7 +63,7 @@ class PokemonController extends Controller
      */
     public function edit(Pokemon $pokemon)
     {
-        //
+        return view('admin.pokemon.edit', compact('pokemon'));
     }
 
     /**
@@ -72,7 +75,10 @@ class PokemonController extends Controller
      */
     public function update(UpdatePokemonRequest $request, Pokemon $pokemon)
     {
-        //
+        $validation = $request->validated();
+        $pokemon->update($validation);
+
+        return to_route('pokemon.index')->with('message', 'pokemon added successfully');
     }
 
     /**
@@ -83,6 +89,7 @@ class PokemonController extends Controller
      */
     public function destroy(Pokemon $pokemon)
     {
-        //
+        $pokemon->delete();
+        return to_route('pokemon.index')->with('message', 'pokemon deleted');
     }
 }

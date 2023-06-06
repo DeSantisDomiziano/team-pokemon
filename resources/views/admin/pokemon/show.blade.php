@@ -2,7 +2,8 @@
 @section('content')
 <div class="mainpokedex">
     <div class="container h-100 ">
-        <div class="row py-2 h-100 justify-content-center">
+        <div class="row py-2 h-100 justify-content-center row-cols-2">
+
             <div class="col-6 d-flex flex-column justify-content-between">
                 <div class="titlepokemon">
                     <h2 class="text-center m-0 py-3 text-uppercase">{{ $pokemon->name }}</h2>
@@ -21,6 +22,18 @@
                         <span>{{ rand(0, $seen) }}</span>
                     </p>
                 </div>
+            </div>
+
+            <div class="col-6 px-5 pt-3 bg-white rounded-4">
+                <p>{{ $pokemon->type_1 }}</p>
+                <p>{{ $pokemon->type_2 }}</p>
+                <p>{{ $pokemon->total }}</p>
+                <p>{{ $pokemon->hp }}</p>
+                <p>{{ $pokemon->attack }}</p>
+                <p>{{ $pokemon->defense }}</p>
+                <p>{{ $pokemon->sp_atk }}</p>
+                <p>{{ $pokemon->sp_def }}</p>
+                <p>{{ $pokemon->speed }}</p>
             </div>
         </div>
     </div>

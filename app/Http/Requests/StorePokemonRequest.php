@@ -24,7 +24,24 @@ class StorePokemonRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "name" => ['required'],
+            "type_1" => ['required'],
+            "type_2" => ['required'],
+            "total" => ['required'],
+            "hp" => ['required'],
+            "attack" => ['required'],
+            "defense" => ['required'],
+            "sp_atk" => ['required'],
+            "sp_def" => ['required'],
+            "speed" => ['required'],
+            "generation" => ['required'],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            
         ];
     }
 }
