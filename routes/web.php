@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', [PageController::class, 'index'])->name('home');
+ Route::get('/', [PageController::class, 'index'])->name('home');
 
-// Route::get('/selectedPokemon/{pokemonId}', [PageController::class, 'selectedPokemon'])->name('selectedPokemon');
+ Route::get('/selectedPokemon/{pokemon}', [PageController::class, 'show'])->name('selectedPokemon');
 
-Route::resource("/", PokemonController::class);
+Route::resource("/pokemon", PokemonController::class);

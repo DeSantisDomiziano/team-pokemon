@@ -16,7 +16,8 @@ class PokemonController extends Controller
      */
     public function index()
     {
-        //
+        $pokemons = Pokemon::all();
+        return view('admin.pokemon.index',compact('pokemons'));
     }
 
     /**
@@ -48,7 +49,7 @@ class PokemonController extends Controller
      */
     public function show(Pokemon $pokemon)
     {
-        //
+        return view('admin.pokemon.show',compact('pokemon'));
     }
 
     /**
