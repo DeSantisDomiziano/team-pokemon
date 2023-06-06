@@ -1,36 +1,31 @@
 @extends('layouts.app')
+
 @section('content')
-<div class="nav_pokedex">
-    <h1>POKEDEX NAZIONALE</h1>
-</div>
 <div class="mainpokedex">
-    <div class="container">
-        <div class="row">
-            <div class="col-6">
+    <div class="container h-100">
+        <div class="row py-2 h-100">
+            <div class="col-6 d-flex flex-column justify-content-between">
                 <div class="titlepokemon">
-                    <h2>POKEMON</h2>
+                    <h2 class="text-center m-0 py-3 text-uppercase">{{ $selectedPokemon->name }}</h2>
                 </div>
-                <div class="img_pokemon">
-                    <img src="https://picsum.photos/400" alt="">
+                <div class="img_pokemon text-center flex-grow-1 d-flex align-items-center justify-content-center">
+                    <img width="50%" src="{{ Vite::asset('resources/img/pokemon/' . $selectedPokemon->id . '.png') }}" alt="{{ $selectedPokemon->name . ' image' }}">
                 </div>
                 <div class="check_pokemon">
-                    <p>POSSEDUTI:</p>
-                    <p>CATTURATI:</p>
+
+                    <?php $seen = rand(0, 100); ?>
+                    <p class="d-flex justify-content-between m-0 py-2">
+                        AVVISTATI:
+                        <span>{{ $seen }}</span>
+                    </p>
+                    <p class="d-flex justify-content-between m-0 py-2">
+                        CATTURATI:
+                        <span>{{ rand(0, $seen) }}</span>
+                    </p>
+
                 </div>
             </div>
-            <div class="col-6">
-                <div class="listpokemon">
-                    <ul>
-                        @foreach($pokemon as $index => $singlepokemon)
-                        <li>
-                            <img src="" alt="">
-                            <span>{{$singlepokemon->id}}</span>
-                            <p>{{$singlepokemon->name}}</p>
-                        </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
+            @include('partials.rightSection')
         </div>
     </div>
 </div>
