@@ -41,7 +41,7 @@
                     <td>{{$pokemon->name}}</td>
                     <td><img src="{{ Vite::asset('resources/img/pokemon/' . ($pokemon->id) . '.png') }}" width="100" alt="{{$pokemon->name}}"></td>
                     <td>{{$pokemon->generation}}</td>
-                    <td>{{$pokemon->legendary}}</td>
+                    <td>{{ $pokemon->legendary ? "Yes" : "No" }}</td>
                     <td>
                         <a class="me-2 fs-4 text-primary" href="{{route('pokemon.show',$pokemon->id)}}" role="button" title="view">
                         <i class="fa-solid fa-eye"></i>

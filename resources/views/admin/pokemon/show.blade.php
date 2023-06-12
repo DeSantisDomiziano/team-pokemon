@@ -25,15 +25,19 @@
             </div>
 
             <div class="col-6 px-5 pt-3 bg-white rounded-4">
-                <p>{{ $pokemon->type_1 }}</p>
-                <p>{{ $pokemon->type_2 }}</p>
-                <p>{{ $pokemon->total }}</p>
-                <p>{{ $pokemon->hp }}</p>
-                <p>{{ $pokemon->attack }}</p>
-                <p>{{ $pokemon->defense }}</p>
-                <p>{{ $pokemon->sp_atk }}</p>
-                <p>{{ $pokemon->sp_def }}</p>
-                <p>{{ $pokemon->speed }}</p>
+                <p>Total: {{ $pokemon->total }}</p>
+                <p>HP: {{ $pokemon->hp }}</p>
+                <p>Attack: {{ $pokemon->attack }}</p>
+                <p>Defense: {{ $pokemon->defense }}</p>
+                <p>Special attack: {{ $pokemon->sp_atk }}</p>
+                <p>Special defense: {{ $pokemon->sp_def }}</p>
+                <p>Speed: {{ $pokemon->speed }}</p>
+                @if($types->count() > 0)
+                <p class="mb-0">Types:</p>
+                @endif
+                @foreach($types as $type)
+                <span class="badge" style="background-color: {{ $type->color }}">{{ $type->name }}</span>
+                @endforeach
             </div>
         </div>
     </div>
