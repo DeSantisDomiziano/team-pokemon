@@ -21,8 +21,6 @@ class PokemonSeeder extends Seeder
             if($singlePokemon != 0) {
                 $pokemon = new Pokemon();
                 $pokemon->name = $row[1];
-                $pokemon->type_1 = $row[2];
-                $pokemon->type_2 = $row[3];
                 $pokemon->total = $row[4];
                 $pokemon->hp = $row[5];
                 $pokemon->attack = $row[6];
