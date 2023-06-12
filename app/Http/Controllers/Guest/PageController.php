@@ -17,8 +17,9 @@ class PageController extends Controller
     public function show(Pokemon $pokemon)
     {
         $pokemons = Pokemon::all();
+        $selectedPokemon = $pokemon;
         //dd($pokemon);
-        return view('show',compact('pokemons','pokemon'));
+        return view('show',compact('pokemons','selectedPokemon'));
 
     }
 }
