@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePokemonRequest;
 use App\Http\Requests\UpdatePokemonRequest;
 use App\Models\Pokemon;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class PokemonController extends Controller
@@ -16,7 +17,7 @@ class PokemonController extends Controller
      */
     public function index()
     {
-        $pokemons = Pokemon::all();
+        $pokemons = Pokemon::orderByDesc('id')->get();
         return view('admin.pokemon.index',compact('pokemons'));
     }
 
@@ -27,7 +28,8 @@ class PokemonController extends Controller
      */
     public function create()
     {
-        return view('admin.pokemon.create');
+        $types = Type::orderBy("name")->get();
+        return view('admin.pokemon.create', compact("types"));
     }
 
     /**
@@ -39,8 +41,9 @@ class PokemonController extends Controller
     public function store(StorePokemonRequest $request)
     {
         $validation = $request->validated();
-        Pokemon::create($validation);
-
+        $types = $request->types;
+        $newPokemon = Pokemon::create($validation);
+        $newPokemon->types()->attach($types);
         return to_route('pokemon.index')->with('message', 'pokemon added successfully');
     }
 
@@ -52,7 +55,8 @@ class PokemonController extends Controller
      */
     public function show(Pokemon $pokemon)
     {
-        return view('admin.pokemon.show',compact('pokemon'));
+        $types = $pokemon->types;
+        return view('admin.pokemon.show',compact('pokemon', 'types'));
     }
 
     /**
@@ -63,7 +67,8 @@ class PokemonController extends Controller
      */
     public function edit(Pokemon $pokemon)
     {
-        return view('admin.pokemon.edit', compact('pokemon'));
+        $types = Type::orderBy("name")->get();
+        return view('admin.pokemon.edit', compact('pokemon', 'types'));
     }
 
     /**
@@ -77,7 +82,7 @@ class PokemonController extends Controller
     {
         $validation = $request->validated();
         $pokemon->update($validation);
-
+        $pokemon->types()->sync($request->types);
         return to_route('pokemon.index')->with('message', 'pokemon added successfully');
     }
 
