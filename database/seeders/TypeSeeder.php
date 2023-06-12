@@ -18,7 +18,8 @@ class TypeSeeder extends Seeder
         $types = config("db.types");
         foreach ($types as $type) {
             $newType = new Type();
-            $newType->name = $type;
+            $newType->name = $type[0];
+            $newType->color = $type[1];
             $newType->save();
         }
         //
