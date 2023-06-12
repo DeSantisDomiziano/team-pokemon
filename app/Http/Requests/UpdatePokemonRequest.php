@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdatePokemonRequest extends FormRequest
 {
@@ -25,6 +26,7 @@ class UpdatePokemonRequest extends FormRequest
     {
         return [
             "name" => ['required'],
+            "image" => ['image', 'max:2048', Rule::unique("pokemon", "image")->ignore($this->pokemon), 'required'],
             "total" => ['required'],
             "hp" => ['required'],
             "attack" => ['required'],
@@ -32,7 +34,7 @@ class UpdatePokemonRequest extends FormRequest
             "sp_atk" => ['required'],
             "sp_def" => ['required'],
             "speed" => ['required'],
-            "generation" => ['required'],
+            "generation_id" => ['required', "exists:generations,id"],
         ];
     }
 }

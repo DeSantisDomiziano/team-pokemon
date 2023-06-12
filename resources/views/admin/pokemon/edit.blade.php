@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container py-5 bg-dark-subtle rounded-4 my-4">
-  <form action="{{ route('pokemon.update', $pokemon->id) }}" method="post">
+  <form action="{{ route('pokemon.update', $pokemon->id) }}" method="post" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
@@ -11,6 +11,25 @@
       <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" placeholder="" aria-describedby="helpId" value="{{ old('name', $pokemon->name ) }}" required>
       <small id="helpId" class="text-muted">Add name</small>
       @error('name')
+      <div class="alert alert-danger">{{ $message }}</div>
+      @enderror
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">Image</label>
+      <input type="file" name="image" id="image" class="form-control" placeholder="Image" aria-describedby="imageHelper">
+      <small id="imageHelper" class="text-muted">Add image</small>
+    </div>
+
+    <div class="mb-3">
+      <label for="generation_id" class="form-label">Generation</label>
+      <select class="form-select form-select-lg" name="generation_id" id="generation_id">
+        <option value="">--- Select a generation ---</option>
+        @foreach($generations as $generation)
+        <option value="{{ $generation->id }}" {{ $generation->id == old('generation_id', $pokemon->generation_id) ? 'selected' : '' }}>{{ $generation->name }}</option>
+        @endforeach
+      </select>
+      @error('generation_id')
       <div class="alert alert-danger">{{ $message }}</div>
       @enderror
     </div>
@@ -96,15 +115,6 @@
       <input type="number" name="speed" id="speed" class="form-control @error('speed') is-invalid @enderror" placeholder="" aria-describedby="helpId" value="{{ old('speed', $pokemon->speed) }}">
       <small id="helpId" class="text-muted">Add kind of book</small>
       @error('speed')
-      <div class="alert alert-danger">{{ $message }}</div>
-      @enderror
-    </div>
-
-    <div class="mb-3">
-      <label for="generation" class="form-label fs-4 fw-bold">generation</label>
-      <input type="number" name="generation" id="generation" class="form-control @error('generation') is-invalid @enderror" placeholder="" aria-describedby="helpId" value="{{ old('generation', $pokemon->generation) }}">
-      <small id="helpId" class="text-muted">Add kind of book</small>
-      @error('generation')
       <div class="alert alert-danger">{{ $message }}</div>
       @enderror
     </div>

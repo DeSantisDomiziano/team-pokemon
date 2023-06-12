@@ -9,7 +9,11 @@
                     <h2 class="text-center m-0 py-3 text-uppercase">{{ $pokemon->name }}</h2>
                 </div>
                 <div class="img_pokemon text-center flex-grow-1 d-flex align-items-center justify-content-center">
+                    @if(str_contains($pokemon->image, "uploads/"))
+                    <img width="50%" src="{{ asset('storage/' . $pokemon->image) }}" alt="{{ $pokemon->name . ' image' }}">
+                    @else
                     <img width="50%" src="{{ Vite::asset('resources/img/pokemon/' . ($pokemon->id) . '.png') }}" alt="{{ $pokemon->name . ' image' }}">
+                    @endif
                 </div>
                 <div class="check_pokemon">
                     <?php $seen = rand(0, 100); ?>

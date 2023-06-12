@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePokemonRequest;
 use App\Http\Requests\UpdatePokemonRequest;
+use App\Models\Generation;
 use App\Models\Pokemon;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PokemonController extends Controller
 {
@@ -29,7 +31,8 @@ class PokemonController extends Controller
     public function create()
     {
         $types = Type::orderBy("name")->get();
-        return view('admin.pokemon.create', compact("types"));
+        $generations = Generation::orderBy("name")->get();
+        return view('admin.pokemon.create', compact("types", "generations"));
     }
 
     /**
@@ -41,8 +44,10 @@ class PokemonController extends Controller
     public function store(StorePokemonRequest $request)
     {
         $validation = $request->validated();
-        $types = $request->types;
+        $imagePath = Storage::put("uploads", $validation["image"]);
+        $validation["image"] = $imagePath;
         $newPokemon = Pokemon::create($validation);
+        $types = $request->types;
         $newPokemon->types()->attach($types);
         return to_route('pokemon.index')->with('message', 'pokemon added successfully');
     }
@@ -68,7 +73,8 @@ class PokemonController extends Controller
     public function edit(Pokemon $pokemon)
     {
         $types = Type::orderBy("name")->get();
-        return view('admin.pokemon.edit', compact('pokemon', 'types'));
+        $generations = Generation::orderBy("name")->get();
+        return view('admin.pokemon.edit', compact('pokemon', 'types', 'generations'));
     }
 
     /**
