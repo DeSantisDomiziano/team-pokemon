@@ -21,5 +21,15 @@
       ["Ghiaccio", "#00FFFF"],
       ["Folletto", "#FFB6C1"]
     ],
+    "generations" => [
+      "Kanto",
+      "Johto",
+      "Hoenn",
+      "Sinnoh",
+      "Unima",
+      "Kalos",
+      "Alola",
+      "Galar"
+    ]
   ];
 ?>
