@@ -25,8 +25,6 @@ class StorePokemonRequest extends FormRequest
     {
         return [
             "name" => ['required'],
-            "type_1" => ['required'],
-            "type_2" => ['required'],
             "total" => ['required'],
             "hp" => ['required'],
             "attack" => ['required'],
