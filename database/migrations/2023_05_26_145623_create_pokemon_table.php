@@ -16,8 +16,6 @@ return new class extends Migration
         Schema::create('pokemon', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('type_1');
-            $table->string('type_2');
             $table->smallInteger('total');
             $table->tinyInteger('hp')->unsigned();
             $table->tinyInteger('attack')->unsigned();
@@ -25,7 +23,6 @@ return new class extends Migration
             $table->tinyInteger('sp_atk')->unsigned();
             $table->tinyInteger('sp_def')->unsigned();
             $table->tinyInteger('speed')->unsigned();
-            $table->tinyInteger('generation')->unsigned();
             $table->boolean('legendary')->default(false);
             $table->timestamps();
         });

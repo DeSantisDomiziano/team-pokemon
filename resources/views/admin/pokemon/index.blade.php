@@ -39,9 +39,14 @@
                 <tr class="">
                     <td scope="row">{{$pokemon->id}}</td>
                     <td>{{$pokemon->name}}</td>
-                    <td><img src="{{ Vite::asset('resources/img/pokemon/' . ($pokemon->id) . '.png') }}" width="100" alt="{{$pokemon->name}}"></td>
-                    <td>{{$pokemon->generation}}</td>
-                    <td>{{$pokemon->legendary}}</td>
+                    <td>
+                    @if(str_contains($pokemon->image, "uploads/"))
+                    <img width="100" src="{{ asset('storage/' . $pokemon->image) }}" alt="{{ $pokemon->name . ' image' }}">
+                    @else
+                    <img width="100" src="{{ Vite::asset('resources/img/pokemon/' . ($pokemon->id) . '.png') }}" alt="{{ $pokemon->name . ' image' }}">
+                    @endif
+                    <td>{{ $pokemon->generation?->name }}</td>
+                    <td>{{ $pokemon->legendary ? "Yes" : "No" }}</td>
                     <td>
                         <a class="me-2 fs-4 text-primary" href="{{route('pokemon.show',$pokemon->id)}}" role="button" title="view">
                         <i class="fa-solid fa-eye"></i>
